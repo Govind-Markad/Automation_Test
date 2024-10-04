@@ -1,5 +1,5 @@
-import { Builder } from 'selenium-webdriver';
-import { expect } from 'chai';
+const { Builder } = require('selenium-webdriver');
+const assert = require('assert'); // Use built-in assertion library
 
 describe('Google Page Title Test', function () {
   this.timeout(30000); // Set a timeout for the test
@@ -8,9 +8,9 @@ describe('Google Page Title Test', function () {
 
   // Setup WebDriver before tests
   before(async function () {
+    // Initialize WebDriver for Chrome and maximize the window
     driver = await new Builder().forBrowser('chrome').build();
     await driver.manage().window().maximize();
-
   });
 
   // Close WebDriver after tests
@@ -24,6 +24,6 @@ describe('Google Page Title Test', function () {
   it('should open Google and check the title', async function () {
     await driver.get('https://www.google.com');
     const title = await driver.getTitle();
-    expect(title).to.equal('Google');
+    assert.strictEqual(title, 'Google'); // Using assert instead of expect
   });
 });
