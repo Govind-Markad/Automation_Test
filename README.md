@@ -1,0 +1,1 @@
+This repository is focused on automated testing using WebdriverIO. While the setup for generating reports is functioning correctly, there is an issue with the video reporter—although reports are being generated successfully, videos of the test runs are not being captured as expected.
